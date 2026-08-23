@@ -688,34 +688,64 @@ passwordInput.addEventListener(
   }
 );
 
-
 function unlockSecret() {
 
   const entered =
-    passwordInput.value;
+    passwordInput.value.trim();
 
-  if (
-    entered ===
-    SECRET_PASSWORD
-  ) {
+  if (entered === SECRET_PASSWORD) {
 
-    passwordModal.classList.remove(
-      "open"
-    );
+    /* Close password modal */
+
+    passwordModal.classList.remove("open");
+
+    document.body.classList.remove("modal-open");
+
+
+    /* Hide the secret box completely */
+
+    const secretSection =
+      document.querySelector(".secret-section");
+
+    if (secretSection) {
+
+      secretSection.classList.add(
+        "secret-unlocked"
+      );
+
+    }
+
+
+    /* Show cinematic secret room */
 
     secretMessage.classList.add(
       "visible"
     );
 
+
+    /* Create cinematic effects */
+
+    createSecretRain();
+
+    createSecretHearts();
+
+
+    /* Move to secret room */
+
     setTimeout(() => {
 
       secretMessage.scrollIntoView({
-        behavior: "smooth"
+        behavior: "smooth",
+        block: "start"
       });
 
-    }, 300);
+    }, 250);
+
+
+    /* Start typing */
 
     startTyping();
+
 
   } else {
 
@@ -728,7 +758,8 @@ function unlockSecret() {
 
   }
 
-}
+                          }
+
 
 
 /* ============================================================
@@ -928,7 +959,132 @@ window.addEventListener(
   }
 );
 
+/* ============================================================
+   CINEMATIC SECRET RAIN
+============================================================ */
 
+function createSecretRain() {
+
+  const layer =
+    document.createElement("div");
+
+  layer.className =
+    "secret-rain-layer";
+
+  secretMessage.appendChild(layer);
+
+
+  const amount =
+    window.innerWidth < 600
+      ? 55
+      : 110;
+
+
+  for (let i = 0; i < amount; i++) {
+
+    const drop =
+      document.createElement("span");
+
+    drop.className =
+      "secret-drop";
+
+
+    drop.style.left =
+      `${Math.random() * 110}%`;
+
+
+    drop.style.setProperty(
+      "--drop-height",
+      `${40 + Math.random() * 80}px`
+    );
+
+
+    drop.style.setProperty(
+      "--drop-opacity",
+      `${0.08 + Math.random() * 0.35}`
+    );
+
+
+    drop.style.setProperty(
+      "--drop-speed",
+      `${0.8 + Math.random() * 1.5}s`
+    );
+
+
+    drop.style.setProperty(
+      "--drop-delay",
+      `${Math.random() * -3}s`
+    );
+
+
+    layer.appendChild(drop);
+
+  }
+
+}
+
+
+/* ============================================================
+   CINEMATIC FLOATING HEARTS
+============================================================ */
+
+function createSecretHearts() {
+
+  const amount =
+    window.innerWidth < 600
+      ? 16
+      : 28;
+
+
+  for (let i = 0; i < amount; i++) {
+
+    const heart =
+      document.createElement("span");
+
+    heart.className =
+      "secret-heart";
+
+    heart.textContent =
+      Math.random() > 0.5
+        ? "♡"
+        : "♥";
+
+
+    heart.style.left =
+      `${Math.random() * 100}%`;
+
+
+    heart.style.setProperty(
+      "--heart-size",
+      `${10 + Math.random() * 18}px`
+    );
+
+
+    heart.style.setProperty(
+      "--heart-duration",
+      `${5 + Math.random() * 5}s`
+    );
+
+
+    heart.style.setProperty(
+      "--heart-delay",
+      `${Math.random() * 4}s`
+    );
+
+
+    heart.style.setProperty(
+      "--heart-x",
+      `${-80 + Math.random() * 160}px`
+    );
+
+
+    secretMessage.appendChild(
+      heart
+    );
+
+  }
+
+}
 /* ============================================================
    IMAGE ERROR HANDLING
 ============================================================ */
