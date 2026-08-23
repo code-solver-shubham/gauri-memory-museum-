@@ -935,35 +935,133 @@
       </div>
 
     </section>
-
-
     <!-- =======================================================
-         SECRET
-    ======================================================== -->
+     SECRET ROOM
+======================================================== -->
 
-    <section class="secret-message section" id="secretMessage">
+<section class="secret-section section" id="secret">
+
+  <div class="secret-box reveal">
+
+    <span class="eyebrow">
+      PRIVATE ROOM
+    </span>
+
+    <h2>SECRET</h2>
+
+    <p>
+      Some words belong behind one more door.
+    </p>
+
+    <button
+      class="primary-button"
+      id="unlockButton"
+      type="button"
+    >
+      <span>Unlock</span>
+      <span class="button-arrow">→</span>
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     PASSWORD MODAL
+======================================================== -->
+
+<div class="password-modal" id="passwordModal">
+
+  <div class="password-box">
+
+    <button
+      class="modal-close"
+      id="closePassword"
+      aria-label="Close password window"
+      type="button"
+    >
+      ×
+    </button>
+
+    <span class="eyebrow">
+      PRIVATE
+    </span>
+
+    <h2>
+      Enter the code
+    </h2>
+
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Password"
+      autocomplete="off"
+    />
+
+    <button
+      class="primary-button"
+      id="submitPassword"
+      type="button"
+    >
+      <span>Unlock</span>
+      <span class="button-arrow">→</span>
+    </button>
+
+    <p
+      class="password-error"
+      id="passwordError"
+    ></p>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     SECRET MESSAGE
+======================================================== -->
+
+<section
+  class="secret-message section"
+  id="secretMessage"
+>
 
   <div class="secret-message-inner">
+
+    <div class="secret-heart-orbit" aria-hidden="true">
+      <span>♡</span>
+      <span>♥</span>
+      <span>♡</span>
+      <span>♥</span>
+    </div>
 
     <span class="eyebrow">
       YOU FOUND MY SECRET
     </span>
 
     <h2>
-      Gayuu, this one is for you.
+      Gayuu,<br />
+      this one is for you.
     </h2>
+
+    <div class="secret-divider">
+      <span></span>
+      <i>♥</i>
+      <span></span>
+    </div>
 
     <div class="secret-letter" id="secretLetter">
 
       <p>
         Gayuu, you know?
-        <br>
+        <br />
         Ki Tu mere liye kitni important hai? ❤️
       </p>
 
       <p>
         You know How much precious are you for me?
-        <br>
+        <br />
         Shayad tu kabhi soch bhi nhi sakti ki tu mere liye kya hai.
       </p>
 
@@ -980,9 +1078,9 @@
       <p>
         Kabhi kabhi shayad mai tujhe theek se samajh bhi nhi pata,
         tujh pe bin matlab ka gussa karta hu...
-        <br>
+        <br />
         Or mere is behaviour se tujhe bohot hurt bhi hota hai...
-        <br>
+        <br />
         Har time tujhe rulata hu... ❤️‍🩹😭
       </p>
 
@@ -993,7 +1091,7 @@
       <p>
         Bhale hi mai gusse me kuch bhi kyu na bolu,
         bhale hi mai kitna hi bura bol du lekin....
-        <br>
+        <br />
         Sach to ye hai ki mai tujh se baat kiye bina
         reh hi nhi sktaaa...
       </p>
@@ -1005,7 +1103,7 @@
 
       <p>
         Maine tujhe iss August month me bohot rulaya hai....
-        <br>
+        <br />
         Shayad isse pehle maine kabhi tujhe itna hurt na kiya ho....
       </p>
 
@@ -1035,26 +1133,27 @@
 
       <p class="love-line">
         And Gayuu....
-        <br><br>
+        <br /><br />
         I loveee youu so much. ❤️
-        <br>
+        <br />
         I lovee you yesterday,
-        <br>
+        <br />
         I love you today,
-        <br>
+        <br />
         and I love you tomorrow.
-        <br><br>
-        I lovee you forever ever and ever babe. 💋🧿🌎♾️
+        <br /><br />
+        I lovee you forever ever and ever babe.
+        💋🧿🌎♾️
       </p>
 
       <p class="promise-line">
         Or haa...
-        <br>
+        <br />
         bhale hi hamare bich kitna bhi jhagda ho jaye,
         life me kitne bhi ups & downs aaye,
-        <br><br>
+        <br /><br />
         but ham ek dusre pe kabhi give up nhi karenge.
-        <br>
+        <br />
         I promise you jaan. ♾️🥺🧿😭
       </p>
 
@@ -1063,7 +1162,7 @@
       </p>
 
       <div class="secret-signature">
-        Yours,<br>
+        Yours,<br />
         Harshit ❤️
       </div>
 
@@ -1071,89 +1170,15 @@
 
   </div>
 
-    </section>
+  </section>
+    
+    
 
-    <!-- =======================================================
-         PASSWORD MODAL
-    ======================================================== -->
-
-    <div class="password-modal" id="passwordModal">
-
-      <div class="password-box">
-
-        <button
-          class="modal-close"
-          id="closePassword"
-        >
-          ×
-        </button>
-
-        <span class="eyebrow">
-          PRIVATE
-        </span>
-
-        <h2>
-          Enter the code
-        </h2>
-
-        <input
-          type="password"
-          id="passwordInput"
-          placeholder="Password"
-          autocomplete="off"
-        />
-
-        <button
-          class="primary-button"
-          id="submitPassword"
-        >
-          Unlock
-        </button>
-
-        <p
-          class="password-error"
-          id="passwordError"
-        ></p>
-
-      </div>
-
-    </div>
+ 
 
 
-    <!-- =======================================================
-         SECRET MESSAGE
-    ======================================================== -->
 
-    <section
-      class="secret-message section"
-      id="secretMessage"
-    >
-
-      <div class="secret-message-inner">
-
-        <span class="eyebrow">
-          YOU FOUND IT
-        </span>
-
-        <h2>
-          Some things are easier to build than to say.
-        </h2>
-
-        <div
-          class="typing-text"
-          id="typingText"
-        ></div>
-
-        <div
-          class="secret-ending"
-          id="secretEnding"
-        >
-          I love you.
-        </div>
-
-      </div>
-
-    </section>
+    
 
 
     <!-- =======================================================
