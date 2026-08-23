@@ -2625,3 +2625,467 @@ p {
   }
 
        }
+/* ============================================================
+   CINEMATIC SECRET EXPERIENCE
+============================================================ */
+
+.secret-section.secret-unlocked {
+  display: none !important;
+}
+
+/* Full cinematic secret room */
+.secret-message {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  max-width: none;
+
+  display: none;
+  place-items: center;
+
+  overflow: hidden;
+
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(111, 37, 53, 0.38),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(209, 138, 159, 0.08),
+      transparent 30%
+    ),
+    #0c0709;
+}
+
+.secret-message.visible {
+  display: grid;
+
+  animation: cinematicSecretIn 2s var(--ease) both;
+}
+
+@keyframes cinematicSecretIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Dark cinematic vignette */
+
+.secret-message::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 30%,
+      rgba(0,0,0,0.75) 100%
+    );
+
+  z-index: 2;
+}
+
+
+/* Moving light */
+
+.secret-cinematic-glow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(209,138,159,0.12),
+      transparent 65%
+    );
+
+  filter: blur(30px);
+
+  animation:
+    cinematicGlow 8s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+@keyframes cinematicGlow {
+  0% {
+    transform: translate(-30vw, -10vh) scale(0.8);
+  }
+
+  50% {
+    transform: translate(20vw, 10vh) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-5vw, 25vh) scale(0.9);
+  }
+}
+
+
+/* Secret content */
+
+.secret-message-inner {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(760px, 100%);
+
+  text-align: center;
+
+  padding: 30px 15px;
+}
+
+
+/* Top label */
+
+.secret-message .eyebrow {
+  display: block;
+
+  margin-bottom: 25px;
+
+  opacity: 0;
+
+  animation:
+    secretFadeUp 1.5s 0.5s var(--ease)
+    forwards;
+}
+
+
+/* Main title */
+
+.secret-message h2 {
+  margin: 20px 0 35px;
+
+  font-size: clamp(4rem, 11vw, 8rem);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.045em;
+
+  color: var(--cream);
+
+  text-shadow:
+    0 0 30px rgba(209,138,159,0.12),
+    0 20px 70px rgba(0,0,0,0.5);
+
+  opacity: 0;
+
+  animation:
+    secretTitleIn 1.8s 0.8s var(--ease)
+    forwards;
+}
+
+@keyframes secretTitleIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(50px)
+      scale(0.94);
+
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+
+/* Thin golden divider */
+
+.secret-divider {
+  width: 0;
+  height: 1px;
+
+  margin: 0 auto 35px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--champagne),
+      transparent
+    );
+
+  animation:
+    dividerReveal 1.5s 1.6s var(--ease)
+    forwards;
+}
+
+@keyframes dividerReveal {
+  to {
+    width: min(280px, 60%);
+  }
+}
+
+
+/* Letter */
+
+.secret-letter {
+  max-width: 650px;
+
+  margin: auto;
+
+  color:
+    rgba(245,238,233,0.72);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(1.2rem, 3vw, 1.6rem);
+
+  line-height: 1.8;
+}
+
+
+/* Individual emotional lines */
+
+.secret-letter p {
+  margin-bottom: 25px;
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  animation:
+    secretParagraphIn 1.3s var(--ease)
+    forwards;
+}
+
+.secret-letter p:nth-child(1) {
+  animation-delay: 2s;
+}
+
+.secret-letter p:nth-child(2) {
+  animation-delay: 2.7s;
+}
+
+.secret-letter p:nth-child(3) {
+  animation-delay: 3.4s;
+}
+
+@keyframes secretParagraphIn {
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* Signature */
+
+.secret-signature {
+  margin-top: 55px;
+
+  color: var(--rose);
+
+  font-family: "Parisienne", cursive;
+
+  font-size:
+    clamp(3.5rem, 9vw, 6rem);
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  animation:
+    signatureReveal 1.8s 4.2s var(--ease)
+    forwards;
+}
+
+@keyframes signatureReveal {
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+   SECRET RAIN
+============================================================ */
+
+.secret-rain-layer {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0.45;
+}
+
+.secret-drop {
+  position: absolute;
+
+  top: -100px;
+
+  width: 1px;
+
+  height: var(--drop-height);
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(255,255,255,0.45)
+    );
+
+  opacity: var(--drop-opacity);
+
+  transform: rotate(15deg);
+
+  animation:
+    cinematicRain
+    var(--drop-speed)
+    linear
+    infinite;
+
+  animation-delay: var(--drop-delay);
+}
+
+@keyframes cinematicRain {
+  from {
+    transform:
+      translate3d(0,-100px,0)
+      rotate(15deg);
+  }
+
+  to {
+    transform:
+      translate3d(-140px,115vh,0)
+      rotate(15deg);
+  }
+}
+
+
+/* ============================================================
+   FLOATING HEARTS
+============================================================ */
+
+.secret-heart {
+  position: absolute;
+
+  bottom: -50px;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  color: var(--rose);
+
+  font-size: var(--heart-size);
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(
+      0 0 10px
+      rgba(209,138,159,0.6)
+    );
+
+  animation:
+    cinematicHeart
+    var(--heart-duration)
+    var(--ease)
+    infinite;
+
+  animation-delay: var(--heart-delay);
+}
+
+@keyframes cinematicHeart {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0,0,0)
+      scale(0.4)
+      rotate(0deg);
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(
+        var(--heart-x),
+        -115vh,
+        0
+      )
+      scale(1.3)
+      rotate(25deg);
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 800px) {
+
+  .secret-message {
+    min-height: 100svh;
+
+    padding:
+      50px 18px;
+  }
+
+  .secret-message h2 {
+    font-size:
+      clamp(3.4rem, 18vw, 6rem);
+  }
+
+  .secret-letter {
+    font-size: 1.18rem;
+
+    line-height: 1.75;
+  }
+
+  .secret-signature {
+    margin-top: 40px;
+  }
+
+     }
