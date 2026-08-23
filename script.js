@@ -14,7 +14,7 @@
   It is suitable for a fun surprise, not for protecting sensitive data.
 */
 
-const SECRET_PASSWORD = "gauri";
+const SECRET_PASSWORD = "gayuu";
 
 
 /*
